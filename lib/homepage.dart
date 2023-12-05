@@ -11,7 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  double? answer;
+  String? answer;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +29,7 @@ class _HomePageState extends State<HomePage> {
             ),
             elevation: 15,
             child: Container(
+              padding: EdgeInsets.only(right: MediaQuery.of(context).size.width/50),
               alignment: Alignment.centerRight,
               width: width(context, 1) ,
               height: height(context, 5),
@@ -36,7 +38,9 @@ class _HomePageState extends State<HomePage> {
               ),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Text('$answer!',
+                child:answer == null?Text('0',style:TextStyle(
+                    fontSize: height(context, 7),
+                    color: tdGrey),): Text('$answer!',
                   style:  TextStyle(
                     fontSize: height(context, 7),
                     color: tdGrey
@@ -123,7 +127,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height/80),
                   child:Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
