@@ -11,7 +11,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String? answer;
+  String answer='';
+  String a='';
+  String b='';
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class _HomePageState extends State<HomePage> {
             ),
             elevation: 15,
             child: Container(
-              padding: EdgeInsets.only(right: MediaQuery.of(context).size.width/50),
+              padding: EdgeInsets.only(right: MediaQuery.of(context).size.width/75,left: MediaQuery.of(context).size.width/75),
               alignment: Alignment.centerRight,
               width: width(context, 1) ,
               height: height(context, 5),
@@ -40,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 child:answer == null?Text('0',style:TextStyle(
                     fontSize: height(context, 7),
-                    color: tdGrey),): Text('$answer!',
+                    color: tdGrey),): Text('$answer',
                   style:  TextStyle(
                     fontSize: height(context, 7),
                     color: tdGrey
@@ -63,19 +65,39 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer=answer.substring(0,answer.length-1);
+                          });
+                        },
                         child: custum_Button(context, 15, 15, 'AC',tdBlue1),),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer+='7';
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '7',tdGrey),),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer+='4';
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '4',tdGrey),),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer+='1';
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '1',tdGrey),),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer+='0';
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '0',tdGrey),),
                     ],
                   ),
@@ -89,16 +111,32 @@ class _HomePageState extends State<HomePage> {
                         onTap: (){},
                         child: custum_Button(context, 15, 15, '+/-',tdBlue1),),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer+='8';
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '8',tdGrey),),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer+='5';
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '5',tdGrey),),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer+='2';
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '2',tdGrey),),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer+='.';
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '.',tdBlue1),),
                     ],
                   ),
@@ -112,13 +150,25 @@ class _HomePageState extends State<HomePage> {
                         onTap: (){},
                         child: custum_Button(context, 15, 15, '%',tdBlue1),),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer+='9';
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '9',tdGrey),),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer+='6';
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '6',tdGrey),),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer+='3';
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '3',tdGrey),),
                       InkWell(
                         onTap: (){},
