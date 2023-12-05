@@ -214,6 +214,7 @@ class _HomePageState extends State<HomePage> {
                         onTap: (){
                           setState(() {
                             answer+='×';
+                            b=double.parse(a);
                           });
                         },
                         child: custum_Button(context, 15, 15, '×',tdBlue1),),
@@ -221,12 +222,14 @@ class _HomePageState extends State<HomePage> {
                         onTap: (){
                           setState(() {
                             answer+='-';
+                            b=double.parse(a);
                           });
                         },
                         child: custum_Button(context, 15, 15, '-',tdBlue1),),
                       InkWell(
                         onTap: (){
                           setState(() {
+                            //todo all verification to have a good ans
                             answer+='=';
                           });
                         },
