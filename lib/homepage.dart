@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                         child: custum_Button(context, 15, 15, '-',tdGrey),),
                       InkWell(
                         onTap: (){},
-                        child: custum_Button(context, 15, 15, '=',tdGrey),),
+                        child: custum_Button(context, 7.5, 15, '=',tdGrey),),
                     ],
                   ),
                 ),
