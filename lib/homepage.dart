@@ -158,7 +158,11 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          setState(() {
+                            answer=''+(double.parse(answer)/100).toString();
+                          });
+                        },
                         child: custum_Button(context, 15, 15, '%',tdBlue1),),
                       InkWell(
                         onTap: (){
