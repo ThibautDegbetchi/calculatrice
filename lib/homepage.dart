@@ -14,6 +14,7 @@ class _HomePageState extends State<HomePage> {
   String answer='';
   String a='';
   double b=0;
+  String operator='';
 
   @override
   Widget build(BuildContext context) {
@@ -67,10 +68,13 @@ class _HomePageState extends State<HomePage> {
                       InkWell(
                         onTap: (){
                           setState(() {
-                            if(answer.isEmpty)
+                            if(answer.isEmpty){
                               answer=answer;
-                            else
+                            }
+                            else{
                               answer=answer.substring(0,answer.length-1);
+                            }
+                            a=answer;
                           });
                         },
                         child: custum_Button(context, 15, 15, 'AC',tdBlue1),),
@@ -87,6 +91,7 @@ class _HomePageState extends State<HomePage> {
                           setState(() {
                             answer+='4';
                             a+='4';
+                            print(double.parse(a));
                           });
                         },
                         child: custum_Button(context, 15, 15, '4',tdGrey),),
@@ -119,6 +124,7 @@ class _HomePageState extends State<HomePage> {
                           setState(() {
                             b=double.parse(answer);
                             answer=(-b).toString();
+                            a=answer;
                           });
                         },
                         child: custum_Button(context, 15, 15, '+/-',tdBlue1),),
@@ -166,6 +172,7 @@ class _HomePageState extends State<HomePage> {
                         onTap: (){
                           setState(() {
                             answer=''+(double.parse(answer)/100).toString();
+                            a=answer;
                           });
                         },
                         child: custum_Button(context, 15, 15, '%',tdBlue1),),
@@ -196,10 +203,12 @@ class _HomePageState extends State<HomePage> {
                       InkWell(
                         onTap: (){
                           setState(() {
-                            answer+='+';
+                            //answer+='+';
                             b=double.parse(a);
                             print(b);
                             a='';
+                            operator = '+';
+                            answer='';
                           });
                         },
                         child: custum_Button(context, 15, 15, '+',tdBlue1),),
@@ -215,7 +224,11 @@ class _HomePageState extends State<HomePage> {
                           setState(() {
                             answer+='÷';
                             b=double.parse(a);
+                            print('b at ontaping "/"$b\n');
                             a='';
+                            print('a at ontaping "/"$a');
+                            operator = '÷';
+                            answer='';
                           });
                         },
                         child: custum_Button(context, 15, 15, '÷',tdBlue1),),
@@ -224,6 +237,8 @@ class _HomePageState extends State<HomePage> {
                           setState(() {
                             answer+='×';
                             b=double.parse(a);
+                            a='';
+                            operator = '×';
                           });
                         },
                         child: custum_Button(context, 15, 15, '×',tdBlue1),),
@@ -232,6 +247,9 @@ class _HomePageState extends State<HomePage> {
                           setState(() {
                             answer+='-';
                             b=double.parse(a);
+                            a='';
+                            operator = '-';
+                            answer='';
                           });
                         },
                         child: custum_Button(context, 15, 15, '-',tdBlue1),),
@@ -239,7 +257,12 @@ class _HomePageState extends State<HomePage> {
                         onTap: (){
                           setState(() {
                             //todo all verification to have a good ans
-                            answer+='=';
+                            answer='';
+                            print('b befor : $b');
+                            print('value of $a');
+                            a = function(b, double.parse(a), operator).toString();
+                            print('b after : $b');
+                            answer=''+a;
                           });
                         },
                         child: custum_Button(context, 7.5, 15, '=',tdBlue1),),
@@ -273,4 +296,27 @@ Widget custum_Button(BuildContext context,double h, double w,String t,Color td){
       ),),
     ),
   );
+}
+
+double function(double x,double y, String op){
+  double answer=0;
+  switch(op){
+    case '+':
+      answer= x+y;
+      break;
+    case '-':
+      answer= x-y;
+      break;
+    case '×':
+      answer= x*y;
+      break;
+    case '÷':
+      answer= x/y;
+      break;
+    default :
+      print('Error');
+      break;
+  }
+  print(' Le resultat de $x $op $y est : $answer');
+  return answer;
 }
